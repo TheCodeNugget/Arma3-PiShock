@@ -1,5 +1,5 @@
 [package]
-name = "Arma3-PiShock"
+name = "arma3-pishock"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,11 +7,11 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "1.12", features = ["full"] }
-reqwest = { version = "0.11", features = ["json"] }
+reqwest = { version = "0.11", features = ["json", "blocking"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 arma-rs = "1.9.2"
 
 [lib]
-name = "Arma3PiShock"
+name = "arma3_pishock"
 crate-type = ["cdylib"]
