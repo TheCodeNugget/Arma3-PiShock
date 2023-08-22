@@ -34,3 +34,15 @@ class Extended_PostInit_EventHandlers {
         init = "call compile preprocessFileLineNumbers 'A3_piShock\XEH_postInit.sqf'";
     };
 };
+
+class CfgUnitInsignia
+{
+	class piShock
+	{
+		displayName = "PiShock";												// Name displayed in Arsenal
+		author = "Ken The Nugget";												// Author displayed in Arsenal
+		texture = "A3_piShock\data\piShockLogo.paa";										// Image path
+		material = "\A3\Ui_f\data\GUI\Cfg\UnitInsignia\default_insignia.rvmat";	// .rvmat path
+		textureVehicle = "";													// Does nothing, reserved for future use
+	};
+};
