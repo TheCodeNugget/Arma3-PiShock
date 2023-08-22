@@ -16,20 +16,21 @@
 
 params ["_state"];
 
-switch (_state) {
+switch (_state) do {
 	case 0: { // Toggle
-		if (isNil (player getVariable "NUG_debugEHIndex")) then {
+		if (player getVariable "NUG_debugEHIndex" < 0) then {
 			[1] call NUG_fnc_APIResponseDisplay_handler;
 		} else {
 			[2] call NUG_fnc_APIResponseDisplay_handler;
-		}
+		};
+	};
 	
 	case 1: { // Enable
 		// Remove old EH if exists
-		if (!isNil (player getVariable "NUG_debugEHIndex")) then {
+		if (player getVariable "NUG_debugEHIndex" >= 0)then {
 			removeMissionEventHandler ["ExtensionCallback", player getVariable "NUG_debugEHIndex"];
-			player setVariable ["NUG_debugEHIndex", nil];
-		}
+			player setVariable ["NUG_debugEHIndex", -1];
+		};
 
 		// Add new EH
 		_EHIndex = addMissionEventHandler ["ExtensionCallback", {
@@ -41,15 +42,15 @@ switch (_state) {
 		player setVariable ["NUG_debugEHIndex", _EHIndex];
 
 		// Display Result
-		systemChat format ["API response enabled"];
-	}
+		systemChat "API response enabled";
+	};
 	
 	case 2: { // Disable
 		// Remove EH
-		if (!isNil (player getVariable "NUG_debugEHIndex")) then {
+		if (player getVariable "NUG_debugEHIndex" >= 0) then {
 			removeMissionEventHandler ["ExtensionCallback", player getVariable "NUG_debugEHIndex"];
-			player setVariable ["NUG_debugEHIndex", nil];
-			systemChat format ["API response disabled"];
-		}
-	}
-}
+			player setVariable ["NUG_debugEHIndex", -1];
+			systemChat "API response disabled";
+		};
+	};
+};

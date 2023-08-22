@@ -19,7 +19,6 @@
 
 params ["_intensity", "_duration"];
 
-
 // Consent check
 
 if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
@@ -28,7 +27,7 @@ if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
 
 // PiShock Check
 
-if (!NUG_piShock_enable) exitWith {
+if !(player getVariable "NUG_killswitch") exitWith {
 	["Killswitch off, Shock not sent!", remoteExecutedOwner] call BIS_fnc_error;
 };
 
@@ -50,4 +49,4 @@ if ((time - (player getVariable "NUG_lastShockTime")) < (NUG_global_cooldown max
 } else {		
 	"arma3_pishock" callExtension ["ops:shock", [NUG_userName, NUG_shareCode, NUG_APIKEY, _intensity, _duration]];
 	player setVariable ["NUG_lastShockTime", time];
-}
+};

@@ -17,7 +17,6 @@
 
 params ["_duration"];
 
-
 // Consent check
 
 if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
@@ -26,7 +25,7 @@ if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
 
 // PiShock Check
 
-if (!NUG_piShock_enable) exitWith {
+if !(player getVariable "NUG_killswitch") exitWith {
 	["Killswitch off, Beep not sent!", remoteExecutedOwner] call BIS_fnc_error;
 };
 
@@ -43,4 +42,4 @@ if ((time - (player getVariable "NUG_lastBeepTime")) < (NUG_global_cooldown max 
 } else {		
 	"arma3_pishock" callExtension ["ops:beep", [NUG_userName, NUG_shareCode, NUG_APIKEY, _duration]];
 	player setVariable ["NUG_lastBeepTime", time];
-}
+};

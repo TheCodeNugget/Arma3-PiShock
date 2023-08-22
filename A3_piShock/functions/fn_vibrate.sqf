@@ -17,8 +17,7 @@
     [50, 5] call NUG_fnc_vibrate
 */
 
-params ["_intensity", "_duration"];params ["_intensity", "_duration"];
-
+params ["_intensity", "_duration"];
 
 // Consent check
 
@@ -28,7 +27,7 @@ if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
 
 // PiShock Check
 
-if (!NUG_piShock_enable) exitWith {
+if !(player getVariable "NUG_killswitch") exitWith {
 	["Killswitch off, Vibration not sent!", remoteExecutedOwner] call BIS_fnc_error;
 };
 
@@ -50,4 +49,4 @@ if ((time - (player getVariable "NUG_lastVibrateTime")) < (NUG_global_cooldown m
 } else {		
 	"arma3_pishock" callExtension ["ops:vibrate", [NUG_userName, NUG_shareCode, NUG_APIKEY, _intensity, _duration]];
 	player setVariable ["NUG_lastVibrateTime", time];
-}
+};
