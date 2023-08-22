@@ -4,6 +4,7 @@ player setVariable ["NUG_lastBeepTime", 0];
 player setVariable ["NUG_shockEHIndex", nil];
 player setVariable ["NUG_vibrateEHIndex", nil];
 player setVariable ["NUG_beepEHIndex", nil];
+player setVariable ["NUG_debugEHIndex", nil];
 
 if (NUG_shock_enabled) then {
 	_EHIndex = player addEventHandler [NUG_shock_handler, {
@@ -24,4 +25,13 @@ if (NUG_beep_enabled) then {
 		[NUG_beep_duration] call NUG_fnc_beep;
 	}];
 	player setVariable ["NUG_beepEHIndex", _EHIndex];
+};
+
+if (NUG_response_display) then {
+	_EHIndex = addMissionEventHandler ["ExtensionCallback", {
+		params ["_name", "_function", "_data"];
+		if (_name != "arma3_pishock") exitWith {};
+		systemChat format ["%1 Command: %2", _function, _data];
+	}];
+	player setVariable ["NUG_debugEHIndex", _EHIndex];
 };

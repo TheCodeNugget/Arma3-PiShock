@@ -176,3 +176,14 @@
 	[1, 15, 2, 0],
 	2
 ] call CBA_fnc_addSetting;
+
+// Debug Settings
+
+[
+	"NUG_response_display",
+	"CHECKBOX",
+	["Display Responses", "Display API Responses"],
+	["Arma 3 PiShock", "5. Debug Settings"],
+	false,
+	2
+] call CBA_fnc_addSetting;

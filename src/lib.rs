@@ -49,7 +49,7 @@ use arma_rs::Context;
 				.expect("Failed to get response")
 				.text()
 				.expect("Failed to get payload");
-			ctx.callback_data("example_timer", "done", Some(res));
+			ctx.callback_data("arma3_pishock", "Shock", Some(res));
 		});
 		"Done"
     }
@@ -85,7 +85,7 @@ use arma_rs::Context;
 				.expect("Failed to get response")
 				.text()
 				.expect("Failed to get payload");
-			ctx.callback_data("example_timer", "done", Some(res));
+			ctx.callback_data("arma3_pishock", "Vibrate", Some(res));
 		});
 		"Done"
     }
@@ -115,7 +115,7 @@ use arma_rs::Context;
 				.expect("Failed to get response")
 				.text()
 				.expect("Failed to get payload");
-			ctx.callback_data("example_timer", "done", Some(res));
+			ctx.callback_data("arma3_pishock", "Beep", Some(res));
 		});
 		"Done"
     }
