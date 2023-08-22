@@ -18,7 +18,19 @@ use std::collections::HashMap;
 use reqwest::header::CONTENT_TYPE;
 use arma_rs::Context;
 
-    pub fn shock(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) {
+    pub fn shock(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) -> &'static str {
+		// Sanity Checks
+		
+		match intensity {
+			1..=100 => {}
+			_ => return "Intensity out of range!"
+		}
+		
+		match duration {
+			1..=15 => {}
+			_ => return "Duration out of range!"
+		}
+		
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
@@ -39,9 +51,22 @@ use arma_rs::Context;
 				.expect("Failed to get payload");
 			ctx.callback_data("example_timer", "done", Some(res));
 		});
+		"Done"
     }
 	
-    pub fn vibrate(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) {
+    pub fn vibrate(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) -> &'static str {
+		// Sanity Checks
+		
+		match intensity {
+			1..=100 => {}
+			_ => return "Intensity out of range!"
+		}
+		
+		match duration {
+			1..=15 => {}
+			_ => return "Duration out of range!"
+		}
+		
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
@@ -62,9 +87,17 @@ use arma_rs::Context;
 				.expect("Failed to get payload");
 			ctx.callback_data("example_timer", "done", Some(res));
 		});
+		"Done"
     }
 	
-    pub fn beep(ctx: Context, username: String, sharecode: String, api_key: String, duration: u32) {
+    pub fn beep(ctx: Context, username: String, sharecode: String, api_key: String, duration: u32) -> &'static str {
+		// Sanity Checks
+		
+		match duration {
+			1..=15 => {}
+			_ => return "Duration out of range!"
+		}
+		
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
@@ -84,5 +117,6 @@ use arma_rs::Context;
 				.expect("Failed to get payload");
 			ctx.callback_data("example_timer", "done", Some(res));
 		});
+		"Done"
     }
 }
