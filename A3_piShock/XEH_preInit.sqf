@@ -1,6 +1,15 @@
 // Account Settings
 
 [
+	"NUG_piShock_enable",
+	"CHECKBOX",
+	["Enabled on Start", "Enables PiShock on mission start (Killswitch)"],
+	["Arma 3 PiShock", "1.PiShock Settings"],
+	false,
+	2
+] call CBA_fnc_addSetting;
+
+[
 	"NUG_allow_remoteExec",
 	"CHECKBOX",
 	["Allow remote commands", "Allows other players or the server to send shock commands"],

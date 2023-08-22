@@ -26,6 +26,11 @@ if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
 	["Unconsented remote exec detected from: (%1)", remoteExecutedOwner] call BIS_fnc_error;
 };
 
+// PiShock Check
+
+if (!NUG_piShock_enable) exitWith {
+	["Killswitch off, Shock not sent!", remoteExecutedOwner] call BIS_fnc_error;
+};
 
 // Intensity and Duration checks
 
