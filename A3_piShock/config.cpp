@@ -23,3 +23,9 @@ class Extended_PreInit_EventHandlers {
         init = "call compile preprocessFileLineNumbers 'A3_piShock\XEH_preInit.sqf'";
     };
 };
+
+class Extended_PostInit_EventHandlers {
+    class My_post_init_event {
+        init = "call compile preprocessFileLineNumbers 'A3_piShock\XEH_postInit.sqf'";
+    };
+};

@@ -1,4 +1,14 @@
 // Account Settings
+
+[
+	"NUG_allow_remoteExec",
+	"CHECKBOX",
+	["Allow remote commands", "Allows other players or the server to send shock commands"],
+	["Arma 3 PiShock", "1.PiShock Settings"],
+	false,
+	2
+] call CBA_fnc_addSetting;
+
 [
     "NUG_userName",
 	"EDITBOX",
@@ -26,6 +36,15 @@
 	2
 ] call CBA_fnc_addSetting;
 
+[
+    "NUG_global_cooldown",
+	"SLIDER",
+	["Global Cooldown", "Cooldown between all actions."],
+	["Arma 3 PiShock", "1.PiShock Settings"],
+	[1, 15, 1, 0],
+	2
+] call CBA_fnc_addSetting;
+
 // 2.Shock Settings
 
 [
@@ -42,7 +61,7 @@
 	"LIST",
 	["Event Handler", "Event Handler for shocking."],
 	["Arma 3 PiShock", "2.Shock Settings"],
-	[["Hit", "IncomingMissile", "Killed", "Suppressed"], ["Hit", "IncomingMissile", "Killed", "Suppressed"], 0],
+	[["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], ["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], 0],
 	2
 ] call CBA_fnc_addSetting;
 
@@ -64,6 +83,14 @@
 	2
 ] call CBA_fnc_addSetting;
 
+[
+    "NUG_shock_cooldown",
+	"SLIDER",
+	["Global Cooldown", "Cooldown between shocks."],
+	["Arma 3 PiShock", "2.Shock Settings"],
+	[1, 15, 1, 0],
+	2
+] call CBA_fnc_addSetting;
 
 // Vibrate Settings
 
@@ -81,7 +108,7 @@
 	"LIST",
 	["Event Handler", "Event Handler for vibrating."],
 	["Arma 3 PiShock", "3.Vibration Settings"],
-	[["Hit", "IncomingMissile", "Killed", "Suppressed"], ["Hit", "IncomingMissile", "Killed", "Suppressed"], 0],
+	[["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], ["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], 0],
 	2
 ] call CBA_fnc_addSetting;
 
@@ -103,6 +130,15 @@
 	2
 ] call CBA_fnc_addSetting;
 
+[
+    "NUG_vibrate_cooldown",
+	"SLIDER",
+	["Global Cooldown", "Cooldown between vibrations."],
+	["Arma 3 PiShock", "3.Vibration Settings"],
+	[1, 15, 1, 0],
+	2
+] call CBA_fnc_addSetting;
+
 // Beep Settings
 
 [
@@ -119,7 +155,7 @@
 	"LIST",
 	["Event Handler", "Event Handler for vibrating."],
 	["Arma 3 PiShock", "4.Beeping Settings"],
-	[["Hit", "IncomingMissile", "Killed", "Suppressed"], ["Hit", "IncomingMissile", "Killed", "Suppressed"], 0],
+	[["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], ["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], 0],
 	2
 ] call CBA_fnc_addSetting;
 
@@ -129,5 +165,14 @@
 	["Beeping Duration", "Number of seconds to Vibrate the collar."],
 	["Arma 3 PiShock", "4.Beeping Settings"],
 	[1, 15, 5, 0],
+	2
+] call CBA_fnc_addSetting;
+
+[
+    "NUG_beep_cooldown",
+	"SLIDER",
+	["Global Cooldown", "Cooldown between beeps."],
+	["Arma 3 PiShock", "4.Beeping Settings"],
+	[1, 15, 2, 0],
 	2
 ] call CBA_fnc_addSetting;
