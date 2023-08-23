@@ -9,9 +9,7 @@
 	1: Integer (1 - 15) - Duration of the shock.
 
     Return(s):
-    0 - Request Sent
-	1 - Intensity out of bounds
-	2 - Duration out of bounds
+    None
 
     Example:
     [50, 5] call NUG_fnc_shock

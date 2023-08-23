@@ -1,3 +1,4 @@
+#![allow(unused_must_use)] // Suppresses arma-rs context warning
 use arma_rs::{arma, Extension, Group};
 
 #[arma]
@@ -18,23 +19,37 @@ use std::collections::HashMap;
 use reqwest::header::CONTENT_TYPE;
 use arma_rs::Context;
 
-    pub fn shock(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) -> &'static str {
-		// Sanity Checks
+    pub fn shock(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) -> String {
 		
+		// Gather Call Context
+		let call_context = format!(
+			"{:?},{:?},{:?},{:?}",
+			ctx.caller(),
+			ctx.source(),
+			ctx.mission(),
+			ctx.server()
+		);
+		
+		// Sanity Checks, if you trigger these, you probably shouldn't be here!
 		match intensity {
 			1..=100 => {}
-			_ => return "Intensity out of range!"
+			_ => {
+				return format!("Intensity out of range!,{:?}", call_context);
+			}
 		}
 		
 		match duration {
 			1..=15 => {}
-			_ => return "Duration out of range!"
+			_ => {
+				return format!("Duration out of range!,{:?}", call_context);
+			}
 		}
 		
+		// Spawns thread for the HTTPS Request, Prevents freezing the game while waiting response
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
-			map.insert("Name".to_string(), "A3_Pishock_V0.1.3".to_string());
+			map.insert("Name".to_string(), "A3_Pishock_V0.3.0".to_string());
 			map.insert("Code".to_string(), sharecode);
 			map.insert("Intensity".to_string(), intensity.to_string());
 			map.insert("Duration".to_string(), duration.to_string());
@@ -51,26 +66,42 @@ use arma_rs::Context;
 				.expect("Failed to get payload");
 			ctx.callback_data("arma3_pishock", "Shock", Some(res));
 		});
-		"Done"
+		
+		// Returns success message with call context
+		return format!("Shock command sent successfully,{:?}", call_context);
     }
 	
-    pub fn vibrate(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) -> &'static str {
-		// Sanity Checks
+    pub fn vibrate(ctx: Context, username: String, sharecode: String, api_key: String, intensity: u32, duration: u32) -> String {
 		
+		// Gather Call Context
+		let call_context = format!(
+			"{:?},{:?},{:?},{:?}",
+			ctx.caller(),
+			ctx.source(),
+			ctx.mission(),
+			ctx.server()
+		);
+		
+		// Sanity Checks, if you trigger these, you probably shouldn't be here!
 		match intensity {
 			1..=100 => {}
-			_ => return "Intensity out of range!"
+			_ => {
+				return format!("Intensity out of range!,{:?}", call_context);
+			}
 		}
 		
 		match duration {
 			1..=15 => {}
-			_ => return "Duration out of range!"
+			_ => {
+				return format!("Duration out of range!,{:?}", call_context);
+			}
 		}
 		
+		// Spawns thread for the HTTPS Request, Prevents freezing the game while waiting response
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
-			map.insert("Name".to_string(), "A3_Pishock_V0.1.3".to_string());
+			map.insert("Name".to_string(), "A3_Pishock_V0.3.0".to_string());
 			map.insert("Code".to_string(), sharecode);
 			map.insert("Intensity".to_string(), intensity.to_string());
 			map.insert("Duration".to_string(), duration.to_string());
@@ -87,21 +118,35 @@ use arma_rs::Context;
 				.expect("Failed to get payload");
 			ctx.callback_data("arma3_pishock", "Vibrate", Some(res));
 		});
-		"Done"
+		
+		// Returns success message with call context
+		return format!("Shock command sent successfully,{:?}", call_context);
     }
 	
-    pub fn beep(ctx: Context, username: String, sharecode: String, api_key: String, duration: u32) -> &'static str {
-		// Sanity Checks
+    pub fn beep(ctx: Context, username: String, sharecode: String, api_key: String, duration: u32) -> String {
 		
+		// Gather Call Context
+		let call_context = format!(
+			"{:?},{:?},{:?},{:?}",
+			ctx.caller(),
+			ctx.source(),
+			ctx.mission(),
+			ctx.server()
+		);
+		
+		// Sanity Checks, if you trigger these, you probably shouldn't be here!
 		match duration {
 			1..=15 => {}
-			_ => return "Duration out of range!"
+			_ => {
+				return format!("Duration out of range!,{:?}", call_context);
+			}
 		}
 		
+		// Spawns thread for the HTTPS Request, Prevents freezing the game while waiting response
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
-			map.insert("Name".to_string(), "A3_Pishock_V0.1.3".to_string());
+			map.insert("Name".to_string(), "A3_Pishock_V0.3.0".to_string());
 			map.insert("Code".to_string(), sharecode);
 			map.insert("Duration".to_string(), duration.to_string());
 			map.insert("Apikey".to_string(), api_key);
@@ -117,6 +162,8 @@ use arma_rs::Context;
 				.expect("Failed to get payload");
 			ctx.callback_data("arma3_pishock", "Beep", Some(res));
 		});
-		"Done"
+		
+		// Returns success message with call context
+		return format!("Shock command sent successfully,{:?}", call_context);
     }
 }

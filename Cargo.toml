@@ -1,6 +1,6 @@
 [package]
 name = "arma3-pishock"
-version = "0.1.3"
+version = "0.3.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
@@ -10,7 +10,7 @@ tokio = { version = "1.12", features = ["full"] }
 reqwest = { version = "0.11", features = ["json", "blocking"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-arma-rs = "1.9.2"
+arma-rs = { path = "../arma-rs" }
 
 [lib]
 name = "arma3_pishock"

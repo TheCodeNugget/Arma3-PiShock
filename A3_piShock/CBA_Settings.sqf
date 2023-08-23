@@ -3,7 +3,7 @@
 [
 	"NUG_piShock_enable",
 	"CHECKBOX",
-	["Enabled on Start", "Enables PiShock on mission start (Killswitch)"],
+	["Enabled on Start", "Enables PiShock on mission start"],
 	["Arma 3 PiShock", "1.PiShock Settings"],
 	false,
 	2
@@ -100,7 +100,7 @@
 [
     "NUG_shock_cooldown",
 	"SLIDER",
-	["Global Cooldown", "Cooldown between shocks."],
+	["Shock Cooldown", "Cooldown between shocks."],
 	["Arma 3 PiShock", "2.Shock Settings"],
 	[1, 15, 1, 0],
 	2
@@ -152,7 +152,7 @@
 [
     "NUG_vibrate_cooldown",
 	"SLIDER",
-	["Global Cooldown", "Cooldown between vibrations."],
+	["Vibration Cooldown", "Cooldown between vibrations."],
 	["Arma 3 PiShock", "3.Vibration Settings"],
 	[1, 15, 1, 0],
 	2
@@ -195,7 +195,7 @@
 [
     "NUG_beep_cooldown",
 	"SLIDER",
-	["Global Cooldown", "Cooldown between beeps."],
+	["Beeping Cooldown", "Cooldown between beeps."],
 	["Arma 3 PiShock", "4.Beeping Settings"],
 	[1, 15, 2, 0],
 	2
