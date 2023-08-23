@@ -4,12 +4,12 @@ Pishock Extension for Arma 3 written in Rust
 <p align="left">
   <a href="https://www.gnu.org/licenses/gpl-3.0.en.html#license-text">
     <img alt="GitHub" src="https://img.shields.io/github/license/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=gitbook&logoColor=D9E0EE&labelColor=302D41&color=f38ba8">
-  <a href="https://github.com/catppuccin/catppuccin/releases/latest">
+  <a href="https://github.com/TheCodeNugget/Arma3-PiShock/wiki">
     <img alt="Static Badge" src="https://img.shields.io/badge/Github-Wiki-Orange?style=for-the-badge&logo=github&logoColor=D9E0EE&labelColor=302D41&color=fab387">
   <a href="https://github.com/catppuccin/catppuccin/releases/latest">
-    <img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41">
-	<a href="https://github.com/TheCodeNugget/Arma3-PiShock/issues">
-		<img alt="Issues" src="https://img.shields.io/github/issues/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=gitbook&logoColor=D9E0EE&labelColor=302D41&color=B5E8E0"></a>
+	<img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41">
+  <a href="https://github.com/TheCodeNugget/Arma3-PiShock/issues">
+	<img alt="Issues" src="https://img.shields.io/github/issues/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=gitbook&logoColor=D9E0EE&labelColor=302D41&color=B5E8E0"></a>
 </p>
 
 ## Disclaimer
