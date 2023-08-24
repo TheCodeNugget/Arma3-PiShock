@@ -17,7 +17,7 @@ Usage of the PiShock shocker in any of the areas outlined by PiShock (Everywhere
 
 Play Safe and know your Limits.
 
-## :wrench: Installation
+## :hammer_and_wrench: Installation
 Grab the latest release from [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3024239355)
 or
 Download the latest version and unpack it in your Arma 3 installation folder.
