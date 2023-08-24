@@ -1,3 +1,6 @@
+if (!hasInterface) exitWith {}; // No need for server or headless to run this
+#include "CBA_Keybinds.sqf"
+
 player setVariable ["NUG_lastShockTime", 0];
 player setVariable ["NUG_lastVibrateTime", 0];
 player setVariable ["NUG_lastBeepTime", 0];
@@ -18,6 +21,7 @@ if (NUG_piShock_enable) then {
 	[1] call NUG_fnc_killswitch_handler;
 } else {
 	[2] call NUG_fnc_killswitch_handler;
+	if (true) exitWith {};
 };
 
 if (NUG_shock_enabled) then {
