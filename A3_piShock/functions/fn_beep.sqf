@@ -19,7 +19,8 @@ params ["_duration"];
 // Consent check
 
 if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
-	["Unconsented remote exec detected from: (%1)", remoteExecutedOwner] call BIS_fnc_error;
+	remoteExecuterInfo = getUserInfo remoteExecutedOwner;
+	["Unconsented remote exec detected from: (%1) SteamID: (%2)", remoteExecuterInfo select 5, remoteExecuterInfo select 3] call BIS_fnc_error;
 };
 
 // PiShock Check
@@ -31,7 +32,7 @@ if !(player getVariable "NUG_killswitch") exitWith {
 // Intensity and Duration checks
 
 if (_duration > 15 || _duration < 1) exitWith {
-	["Duration out of bounds"] call BIS_fnc_error
+	["Duration out of bounds"] call BIS_fnc_error;
 };
 
 // Cooldown check
