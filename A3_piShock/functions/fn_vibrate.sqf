@@ -19,7 +19,7 @@ params ["_intensity", "_duration"];
 
 // Consent check
 
-if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
+if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
 	remoteExecuterInfo = getUserInfo remoteExecutedOwner;
 	["Unconsented remote exec detected from: (%1) SteamID: (%2)", remoteExecuterInfo select 5, remoteExecuterInfo select 3] call BIS_fnc_error;
 };
@@ -27,7 +27,7 @@ if (isRemoteExecuted && !NUG_allow_remoteExec) exitWith {
 // PiShock Check
 
 if !(player getVariable "NUG_killswitch") exitWith {
-	["Killswitch off, Vibration not sent!", remoteExecutedOwner] call BIS_fnc_error;
+	["Killswitch off, Vibration not sent!"] call BIS_fnc_error;
 };
 
 // Intensity and Duration checks

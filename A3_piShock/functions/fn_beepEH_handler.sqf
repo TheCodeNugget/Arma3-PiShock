@@ -42,7 +42,7 @@ switch (_state) do {
 		player setVariable ["NUG_beepEHType", NUG_vibrate_handler];
 
 		// Display Result
-		systemChat format ["Beeps enabled on: %1, Duration: %2", NUG_beep_handler, NUG_beep_duration];
+		systemChat format ["Beeps enabled - Event: %1, Duration: %2", NUG_beep_handler, NUG_beep_duration];
 	};
 	
 	case 2: { // Disable

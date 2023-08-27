@@ -12,7 +12,7 @@
 [
 	"NUG_allow_remoteExec",
 	"CHECKBOX",
-	["Allow remote commands", "Allows other players or the server to send shock commands"],
+	["Allow remote commands on Start", "Allows other players or the server to send shock commands"],
 	["Arma 3 PiShock", "1.PiShock Settings"],
 	false,
 	2
@@ -209,12 +209,5 @@
 	["Display Responses", "Display API Responses"],
 	["Arma 3 PiShock", "5. Debug Settings"],
 	false,
-	2,
-	{
-		if (NUG_response_display) then {
-			[1] call NUG_fnc_APIResponseDisplay_handler;
-		} else {
-			[2] call NUG_fnc_APIResponseDisplay_handler;
-		};
-	}
+	2
 ] call CBA_fnc_addSetting;

@@ -42,7 +42,7 @@ switch (_state) do {
 		player setVariable ["NUG_shockEHType", NUG_shock_handler];
 
 		// Display Result
-		systemChat format ["Shocks enabled on: %1, Intensity: %2, Duration: %3", NUG_shock_handler, NUG_shock_intensity, NUG_shock_duration];
+		systemChat format ["Shocks enabled - Event: %1, Intensity: %2, Duration: %3", NUG_shock_handler, NUG_shock_intensity, NUG_shock_duration];
 	};
 	
 	case 2: { // Disable

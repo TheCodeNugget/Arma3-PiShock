@@ -20,6 +20,7 @@ class CfgFunctions {
 			class beepEH_handler{};
 			class APIResponseDisplay_handler{};
 			class killswitch_handler{};
+			class allowRE_handler{};
 		};
 	};
 };

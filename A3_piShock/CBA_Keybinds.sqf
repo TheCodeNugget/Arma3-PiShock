@@ -25,6 +25,31 @@
 	""
 ] call CBA_fnc_addKeybind;
 
+// Allow RE Keybinds
+[
+	"Arma 3 PiShock",
+	"NUG_toggle_RE",
+	"Toggle Remote Execution",
+	{[0] call NUG_fnc_allowRE_handler;},
+	""
+] call CBA_fnc_addKeybind;
+
+[
+	"Arma 3 PiShock",
+	"NUG_enable_RE",
+	"Enable Remote Execution",
+	{[1] call NUG_fnc_allowRE_handler},
+	""
+] call CBA_fnc_addKeybind;
+
+[
+	"Arma 3 PiShock",
+	"NUG_disable_RE",
+	"Disable Remote Execution",
+	{[2] call NUG_fnc_allowRE_handler},
+	""
+] call CBA_fnc_addKeybind;
+
 // Shock Keybinds
 [
 	"Arma 3 PiShock",

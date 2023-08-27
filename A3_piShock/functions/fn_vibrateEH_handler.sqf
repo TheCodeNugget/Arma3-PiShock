@@ -42,7 +42,7 @@ switch (_state) do {
 		player setVariable ["NUG_vibrateEHType", NUG_vibrate_handler];
 
 		// Display Result
-		systemChat format ["Vibrations enabled on: %1, Intensity: %2, Duration: %3", NUG_vibrate_handler, NUG_vibrate_intensity, NUG_vibrate_duration];
+		systemChat format ["Vibrations enabled - Event: %1, Intensity: %2, Duration: %3", NUG_vibrate_handler, NUG_vibrate_intensity, NUG_vibrate_duration];
 	};
 	
 	case 2: { // Disable
