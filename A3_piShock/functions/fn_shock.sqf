@@ -20,8 +20,22 @@ params ["_intensity", "_duration"];
 // Consent check
 
 if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
-	remoteExecuterInfo = getUserInfo remoteExecutedOwner;
-	["Unconsented remote exec detected from: (%1) SteamID: (%2)", remoteExecuterInfo select 5, remoteExecuterInfo select 3] call BIS_fnc_error;
+	private _remoteExecutor = remoteExecutedOwner; // Store Executor ID
+	
+	if (_remoteExecutor <= 2) then { // Check if the executor is the server
+		["Unconsented remote exec detected from the server"] call BIS_fnc_error;
+	} else {
+		private _allUserIDs = allUsers;
+		for "_i" from 0 to (count _allUserIds - 1) do { // Iterate player list to find the executor
+			private _userInfo = getUserInfo (_allUserIDs select _i);
+			_userInfo params ["_playerID", "_ownerId", "_SteamID", "_profileName", "_displayName", "_steamName", "_clientState", "_isHC", "_adminState", "_networkInfo", "_unit"];
+			
+			if ((_ownerId) == _remoteExecutor) then {
+				["Unconsented remote exec detected from: (%1), SteamID: (%2), SteamID: (%3)", _profileName, _steamName, _SteamID] call BIS_fnc_error;
+				break;
+			};
+		};
+	};
 };
 
 // PiShock Check
