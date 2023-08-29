@@ -23,7 +23,8 @@ if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
 	private _remoteExecutor = remoteExecutedOwner; // Store Executor ID
 	
 	if (_remoteExecutor <= 2) then { // Check if the executor is the server
-		["Unconsented remote exec detected from the server"] call BIS_fnc_error;
+		["<t color='#ff0000' size='.8'>Warning!<br />Unconsented remote exec detected from the server</t>",-1,-1,4,1,0,789] spawn BIS_fnc_dynamicText;
+		playSound "3DEN_notificationWarning";
 	} else {
 		private _allUserIDs = allUsers;
 		for "_i" from 0 to (count _allUserIds - 1) do { // Iterate player list to find the executor
@@ -31,7 +32,10 @@ if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
 			_userInfo params ["_playerID", "_ownerId", "_SteamID", "_profileName", "_displayName", "_steamName", "_clientState", "_isHC", "_adminState", "_networkInfo", "_unit"];
 			
 			if ((_ownerId) == _remoteExecutor) then {
-				["Unconsented remote exec detected from: (%1), SteamID: (%2), SteamID: (%3)", _profileName, _steamName, _SteamID] call BIS_fnc_error;
+				_warnInfo = format ["Unconsented remote exec detected from: (%1), SteamID: (%2), SteamID: (%3)", _profileName, _steamName, _SteamID];
+				_warnMsg = "<t color='#ff0000' size='.8'>Warning!<br />" + _warnInfo +"</t>";
+				[_warnMsg,-1,-1,4,1,0,789] spawn BIS_fnc_dynamicText;
+				playSound "3DEN_notificationWarning";
 				break;
 			};
 		};
@@ -41,19 +45,18 @@ if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
 // PiShock Check
 
 if !(player getVariable "NUG_killswitch") exitWith {
-	["Killswitch off, Vibration not sent!"] call BIS_fnc_error;
+	systemChat format ["Killswitch off, Shock not sent!"];
 };
 
 // Intensity and Duration checks
 
 if (_intensity > 100 || _intensity < 1) exitWith {
-	["Intensity out of bounds"] call BIS_fnc_error;
+	systemChat format ["Intensity out of bounds"];
 };
 
 if (_duration > 15 || _duration < 1) exitWith {
-	["Duration out of bounds"] call BIS_fnc_error;
+	systemChat format ["Duration out of bounds"];
 };
-
 
 // Cooldown check
 
