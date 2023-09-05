@@ -70,7 +70,7 @@
 	"LIST",
 	["Event Handler", "Event Handler for shocking."],
 	["Arma 3 PiShock", "2.Shock Settings"],
-	[["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], ["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], 0],
+	[["Hit", "Killed", "Suppressed", "Fired"], ["Hit", "Killed", "Suppressed", "Fired"], 0],
 	2,
 	{
 		if (player getVariable "NUG_shockEHIndex" >= 0) then {
@@ -122,7 +122,7 @@
 	"LIST",
 	["Event Handler", "Event Handler for vibrating."],
 	["Arma 3 PiShock", "3.Vibration Settings"],
-	[["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], ["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], 0],
+	[["Hit", "Killed", "Suppressed", "Fired"], ["Hit", "Killed", "Suppressed", "Fired"], 0],
 	2,
 	{
 		if (player getVariable "NUG_vibrateEHIndex" >= 0) then {
@@ -174,7 +174,7 @@
 	"LIST",
 	["Event Handler", "Event Handler for vibrating."],
 	["Arma 3 PiShock", "4.Beeping Settings"],
-	[["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], ["Hit", "IncomingMissile", "Killed", "Suppressed", "Fired"], 0],
+	[["Hit", "Killed", "Suppressed", "Fired"], ["Hit", "Killed", "Suppressed", "Fired"], 0],
 	2,
 	{
 		if (player getVariable "NUG_beepEHIndex" >= 0) then {
