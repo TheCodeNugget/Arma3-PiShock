@@ -10,6 +10,8 @@ Pishock Extension for Arma 3 written in Rust
 	<img alt="GitHub release (with filter)" src="https://img.shields.io/github/v/release/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41">
   <a href="https://github.com/TheCodeNugget/Arma3-PiShock/issues">
 	<img alt="Issues" src="https://img.shields.io/github/issues/TheCodeNugget/Arma3-PiShock?style=for-the-badge&logo=gitbook&logoColor=D9E0EE&labelColor=302D41&color=B5E8E0"></a>
+  <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3024239355">
+	<img alt="Steam Views" src="https://img.shields.io/steam/views/3024239355?style=for-the-badge&logo=steam&logoColor=D9E0EE&labelColor=302D41&color=a6e3a1">
 </p>
 
 ## :warning: Disclaimer
