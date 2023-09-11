@@ -60,9 +60,9 @@ if (_duration > 15 || _duration < 1) exitWith {
 
 // Cooldown check
 
-if ((time - (player getVariable "NUG_lastShockTime")) < (NUG_global_cooldown max NUG_shock_cooldown)) then {
+if (((round time) - (player getVariable "NUG_lastShockTime")) < ((round NUG_global_cooldown) max (round NUG_shock_cooldown))) then {
 	systemChat "Shock on cooldown";
 } else {		
-	"arma3_pishock" callExtension ["ops:shock", [NUG_userName, NUG_shareCode, NUG_APIKEY, _intensity, _duration]];
-	player setVariable ["NUG_lastShockTime", time];
+	"arma3_pishock" callExtension ["ops:shock", [NUG_userName, NUG_shareCode, NUG_APIKEY, round _intensity, round _duration]];
+	player setVariable ["NUG_lastShockTime", (round time)];
 };

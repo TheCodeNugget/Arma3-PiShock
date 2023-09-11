@@ -35,14 +35,14 @@ switch (_state) do {
 
 		// Add new EH
 		_EHIndex = player addEventHandler [NUG_shock_handler, {
-			[NUG_shock_intensity, NUG_shock_duration] call NUG_fnc_shock;
+			[round NUG_shock_intensity, round NUG_shock_duration] call NUG_fnc_shock;
 		}];
 
 		player setVariable ["NUG_shockEHIndex", _EHIndex];
 		player setVariable ["NUG_shockEHType", NUG_shock_handler];
 
 		// Display Result
-		systemChat format ["Shocks enabled - Event: %1, Intensity: %2, Duration: %3", NUG_shock_handler, NUG_shock_intensity, NUG_shock_duration];
+		systemChat format ["Shocks enabled - Event: %1, Intensity: %2, Duration: %3", NUG_shock_handler, round NUG_shock_intensity, round NUG_shock_duration];
 	};
 	
 	case 2: { // Disable

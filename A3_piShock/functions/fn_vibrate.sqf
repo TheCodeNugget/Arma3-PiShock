@@ -60,9 +60,9 @@ if (_duration > 15 || _duration < 1) exitWith {
 
 // Cooldown check
 
-if ((time - (player getVariable "NUG_lastVibrateTime")) < (NUG_global_cooldown max NUG_Vibrate_cooldown)) then {
+if (((round time) - (player getVariable "NUG_lastVibrateTime")) < ((round NUG_global_cooldown) max (round NUG_Vibrate_cooldown))) then {
 	systemChat "Vibrate on cooldown";
 } else {		
-	"arma3_pishock" callExtension ["ops:vibrate", [NUG_userName, NUG_shareCode, NUG_APIKEY, _intensity, _duration]];
-	player setVariable ["NUG_lastVibrateTime", time];
+	"arma3_pishock" callExtension ["ops:vibrate", [NUG_userName, NUG_shareCode, NUG_APIKEY, round _intensity, round _duration]];
+	player setVariable ["NUG_lastVibrateTime", (round time)];
 };

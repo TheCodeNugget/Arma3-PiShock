@@ -35,14 +35,14 @@ switch (_state) do {
 
 		// Add new EH
 		_EHIndex = player addEventHandler [NUG_vibrate_handler, {
-			[NUG_vibrate_intensity, NUG_vibrate_duration] call NUG_fnc_vibrate;
+			[round NUG_vibrate_intensity, round NUG_vibrate_duration] call NUG_fnc_vibrate;
 		}];
 
 		player setVariable ["NUG_vibrateEHIndex", _EHIndex];
 		player setVariable ["NUG_vibrateEHType", NUG_vibrate_handler];
 
 		// Display Result
-		systemChat format ["Vibrations enabled - Event: %1, Intensity: %2, Duration: %3", NUG_vibrate_handler, NUG_vibrate_intensity, NUG_vibrate_duration];
+		systemChat format ["Vibrations enabled - Event: %1, Intensity: %2, Duration: %3", NUG_vibrate_handler, round NUG_vibrate_intensity, round NUG_vibrate_duration];
 	};
 	
 	case 2: { // Disable

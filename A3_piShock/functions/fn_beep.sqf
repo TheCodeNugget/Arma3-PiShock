@@ -55,9 +55,9 @@ if (_duration > 15 || _duration < 1) exitWith {
 
 // Cooldown check
 
-if ((time - (player getVariable "NUG_lastBeepTime")) < (NUG_global_cooldown max NUG_Beep_cooldown)) then {
+if (((round time) - (player getVariable "NUG_lastBeepTime")) < ((round NUG_global_cooldown) max (round NUG_Beep_cooldown))) then {
 	systemChat "Beep on cooldown";
 } else {
-	"arma3_pishock" callExtension ["ops:beep", [NUG_userName, NUG_shareCode, NUG_APIKEY, _duration]];
-	player setVariable ["NUG_lastBeepTime", time];
+	"arma3_pishock" callExtension ["ops:beep", [NUG_userName, NUG_shareCode, NUG_APIKEY, round _duration]];
+	player setVariable ["NUG_lastBeepTime", (round time)];
 };

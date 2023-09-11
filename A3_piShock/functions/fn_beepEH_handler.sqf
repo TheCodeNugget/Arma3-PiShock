@@ -35,14 +35,14 @@ switch (_state) do {
 
 		// Add new EH
 		_EHIndex = player addEventHandler [NUG_beep_handler, {
-			[NUG_beep_intensity, NUG_beep_duration] call NUG_fnc_beep;
+			[round NUG_beep_intensity, round NUG_beep_duration] call NUG_fnc_beep;
 		}];
 
 		player setVariable ["NUG_beepEHIndex", _EHIndex];
 		player setVariable ["NUG_beepEHType", NUG_vibrate_handler];
 
 		// Display Result
-		systemChat format ["Beeps enabled - Event: %1, Duration: %2", NUG_beep_handler, NUG_beep_duration];
+		systemChat format ["Beeps enabled - Event: %1, Duration: %2", NUG_beep_handler, round NUG_beep_duration];
 	};
 	
 	case 2: { // Disable
