@@ -4,50 +4,29 @@ if (!hasInterface) exitWith {}; // No need for server or headless to run this
 0 spawn {
 	waitUntil { sleep 1; not isNull player };
 	
-	player setVariable ["NUG_lastShockTime", 0];
-	player setVariable ["NUG_lastVibrateTime", 0];
-	player setVariable ["NUG_lastBeepTime", 0];
+	player setVariable ["A3PS_lastShockTime", 0];
+	player setVariable ["A3PS_lastVibrateTime", 0];
+	player setVariable ["A3PS_lastBeepTime", 0];
 
-	player setVariable ["NUG_shockEHIndex", -1];
-	player setVariable ["NUG_shockEHType", -1];
+	player setVariable ["A3PS_killswitch", false];
+	player setVariable ["A3PS_allowRE", false];
+	
+	player setVariable ["A3PS_debugEHIndex", -1];
 
-	player setVariable ["NUG_vibrateEHIndex", -1];
-	player setVariable ["NUG_vibrateEHType", -1];
-
-	player setVariable ["NUG_beepEHIndex", -1];
-	player setVariable ["NUG_beepEHType", -1];
-
-	player setVariable ["NUG_debugEHIndex", -1];
-
-	player setVariable ["NUG_killswitch", false];
-	player setVariable ["NUG_allowRE", false];
-
-	if (NUG_piShock_enable) then {
-		[1] call NUG_fnc_killswitch_handler;
+	if (A3PS_piShock_enable) then {
+		[1] call A3PS_fnc_killswitch_handler;
 	} else {
-		[2] call NUG_fnc_killswitch_handler;
+		[2] call A3PS_fnc_killswitch_handler;
 		if (true) exitWith {};
 	};
 
-	if (NUG_allow_remoteExec) then {
-		[1] call NUG_fnc_allowRE_handler;
+	if (A3PS_allow_remoteExec) then {
+		[1] call A3PS_fnc_allowRE_handler;
 	} else {
-		[2] call NUG_fnc_allowRE_handler;
+		[2] call A3PS_fnc_allowRE_handler;
 	};
 
-	if (NUG_shock_enabled) then {
-		[0] call NUG_fnc_shockEH_handler;
-	};
-
-	if (NUG_vibrate_enabled) then {
-		[0] call NUG_fnc_vibrateEH_handler;
-	};
-
-	if (NUG_beep_enabled) then {
-		[0] call NUG_fnc_beepEH_handler;
-	};
-
-	if (NUG_response_display) then {
-		[0] call NUG_fnc_APIResponseDisplay_handler;
+	if (A3PS_response_display) then {
+		[0] call A3PS_fnc_APIResponseDisplay_handler;
 	};
 };

@@ -11,14 +11,14 @@
     None
 
     Example:
-    [5] call NUG_fnc_beep
+    [5] call A3PS_fnc_beep
 */
 
 params ["_duration"];
 
 // Consent check
 
-if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
+if (isRemoteExecuted && !(player getVariable "A3PS_allowRE")) exitWith {
 	private _remoteExecutor = remoteExecutedOwner; // Store Executor ID
 	
 	if (_remoteExecutor <= 2) then { // Check if the executor is the server
@@ -43,7 +43,7 @@ if (isRemoteExecuted && !(player getVariable "NUG_allowRE")) exitWith {
 
 // PiShock Check
 
-if !(player getVariable "NUG_killswitch") exitWith {
+if !(player getVariable "A3PS_killswitch") exitWith {
 	systemChat format ["Killswitch off, Shock not sent!"];
 };
 
@@ -55,9 +55,9 @@ if (_duration > 15 || _duration < 1) exitWith {
 
 // Cooldown check
 
-if (((round time) - (player getVariable "NUG_lastBeepTime")) < ((round NUG_global_cooldown) max (round NUG_Beep_cooldown))) then {
+if (((round time) - (player getVariable "A3PS_lastBeepTime")) < ((round A3PS_global_cooldown) max (round A3PS_Beep_cooldown))) then {
 	systemChat "Beep on cooldown";
 } else {
-	"arma3_pishock" callExtension ["ops:beep", [NUG_userName, NUG_shareCode, NUG_APIKEY, round _duration]];
-	player setVariable ["NUG_lastBeepTime", (round time)];
+	"arma3_pishock" callExtension ["ops:beep", [A3PS_userName, A3PS_shareCode, A3PS_APIKEY, round _duration]];
+	player setVariable ["A3PS_lastBeepTime", (round time)];
 };

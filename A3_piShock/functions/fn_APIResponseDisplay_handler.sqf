@@ -11,25 +11,25 @@
     None
 
     Example:
-    [0] call NUG_fnc_APIResponseDisplay_handler
+    [0] call A3PS_fnc_APIResponseDisplay_handler
 */
 
 params ["_state"];
 
 switch (_state) do {
 	case 0: { // Toggle
-		if (player getVariable "NUG_debugEHIndex" < 0) then {
-			[1] call NUG_fnc_APIResponseDisplay_handler;
+		if (player getVariable "A3PS_debugEHIndex" < 0) then {
+			[1] call A3PS_fnc_APIResponseDisplay_handler;
 		} else {
-			[2] call NUG_fnc_APIResponseDisplay_handler;
+			[2] call A3PS_fnc_APIResponseDisplay_handler;
 		};
 	};
 	
 	case 1: { // Enable
 		// Remove old EH if exists
-		if (player getVariable "NUG_debugEHIndex" >= 0)then {
-			removeMissionEventHandler ["ExtensionCallback", player getVariable "NUG_debugEHIndex"];
-			player setVariable ["NUG_debugEHIndex", -1];
+		if (player getVariable "A3PS_debugEHIndex" >= 0)then {
+			removeMissionEventHandler ["ExtensionCallback", player getVariable "A3PS_debugEHIndex"];
+			player setVariable ["A3PS_debugEHIndex", -1];
 		};
 
 		// Add new EH
@@ -39,7 +39,7 @@ switch (_state) do {
 			systemChat format ["%1 Command: %2", _function, _data];
 		}];
 
-		player setVariable ["NUG_debugEHIndex", _EHIndex];
+		player setVariable ["A3PS_debugEHIndex", _EHIndex];
 
 		// Display Result
 		systemChat "API response enabled";
@@ -47,9 +47,9 @@ switch (_state) do {
 	
 	case 2: { // Disable
 		// Remove EH
-		if (player getVariable "NUG_debugEHIndex" >= 0) then {
-			removeMissionEventHandler ["ExtensionCallback", player getVariable "NUG_debugEHIndex"];
-			player setVariable ["NUG_debugEHIndex", -1];
+		if (player getVariable "A3PS_debugEHIndex" >= 0) then {
+			removeMissionEventHandler ["ExtensionCallback", player getVariable "A3PS_debugEHIndex"];
+			player setVariable ["A3PS_debugEHIndex", -1];
 			systemChat "API response disabled";
 		};
 	};

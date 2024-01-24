@@ -8,8 +8,8 @@ class CfgPatches {
 
 // Declare Functions
 class CfgFunctions {
-	class NUG {
-		tag = "NUG";
+	class A3PS {
+		tag = "A3PS";
 		class functions {
 			file = "\A3_piShock\functions";
 			class shock{};
