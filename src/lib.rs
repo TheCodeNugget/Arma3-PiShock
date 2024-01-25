@@ -49,7 +49,7 @@ use arma_rs::Context;
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
-			map.insert("Name".to_string(), "A3_Pishock_V1.0.0".to_string());
+			map.insert("Name".to_string(), "A3_Pishock_V2.0.0".to_string());
 			map.insert("Code".to_string(), sharecode);
 			map.insert("Intensity".to_string(), intensity.to_string());
 			map.insert("Duration".to_string(), duration.to_string());
@@ -101,7 +101,7 @@ use arma_rs::Context;
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
-			map.insert("Name".to_string(), "A3_Pishock_V1.0.0".to_string());
+			map.insert("Name".to_string(), "A3_Pishock_V2.0.0".to_string());
 			map.insert("Code".to_string(), sharecode);
 			map.insert("Intensity".to_string(), intensity.to_string());
 			map.insert("Duration".to_string(), duration.to_string());
@@ -120,7 +120,7 @@ use arma_rs::Context;
 		});
 		
 		// Returns success message with call context
-		return format!("Shock command sent successfully,{:?}", call_context);
+		return format!("Vibrate command sent successfully,{:?}", call_context);
     }
 	
     pub fn beep(ctx: Context, username: String, sharecode: String, api_key: String, duration: u32) -> String {
@@ -146,7 +146,7 @@ use arma_rs::Context;
 		std::thread::spawn(move || {
 			let mut map = HashMap::new();
 			map.insert("Username".to_string(), username);
-			map.insert("Name".to_string(), "A3_Pishock_V1.0.0".to_string());
+			map.insert("Name".to_string(), "A3_Pishock_V2.0.0".to_string());
 			map.insert("Code".to_string(), sharecode);
 			map.insert("Duration".to_string(), duration.to_string());
 			map.insert("Apikey".to_string(), api_key);
@@ -164,6 +164,6 @@ use arma_rs::Context;
 		});
 		
 		// Returns success message with call context
-		return format!("Shock command sent successfully,{:?}", call_context);
+		return format!("Beep command sent successfully,{:?}", call_context);
     }
 }
