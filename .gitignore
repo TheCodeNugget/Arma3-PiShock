@@ -17,3 +17,6 @@ Cargo.lock
 # Added by cargo
 
 /target
+
+# Gitignore for Arma3 Dev
+*.paa
